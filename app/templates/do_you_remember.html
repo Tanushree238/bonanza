@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../static/css/do_you_remember.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+
+    .entry_block#theme_Naruto{
+        background-image: linear-gradient(to right, #605c3cc5, #3f3c4969), url("../static/images/naruto_bg_1.jfif");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .entry_block#theme_Friends{
+        background-image: linear-gradient(to right, #bbb9a5b7, #d4d0e000), url("../static/images/friends_bg_1.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .entry_block#theme_Harry{
+        background-image: linear-gradient(to right, #bbb9a5b7, #d4d0e000), url("../static/images/harry-potter-30.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    @font-face {
+        font-family: naruto_family;
+        src: url("../static/fonts/njnaruto.ttf");
+    }
+    @font-face {
+        font-family: friends_family;
+        src: url("../static/fonts/GABRWFFR.TTF");
+    }
+    @font-face {
+        font-family: harry_family;
+        src: url("../static/fonts/parry-hotter.regular.ttf");
+    }
+    @font-face {
+        font-family: main_family;
+        src: url("../static/fonts/metal\ lord.ttf");
+    }
+
+    #theme_Naruto .entry_heading{
+        font-family: main_family;
+        font-size: 90px;
+        color: beige
+    }
+    #theme_Friends .entry_heading{
+        font-family: main_family;
+        font-size: 90px;
+        color:black;
+    }
+    #theme_Harry .entry_heading{
+        font-family: main_family;
+        font-size: 90px;
+        color:black;
+    }
+    #theme_Naruto .theme_heading{
+        font-family: naruto_family;
+        font-size: 50px;
+    }
+    #theme_Friends .theme_heading{
+        font-family: friends_family;
+        font-size: 50px;
+    }
+    #theme_Harry .theme_heading{
+        font-family: harry_family;
+        font-size: 50px;
+    }
+    .theme_sub_heading{
+        font-family: 'Birthstone', cursive;
+        font-size: 45px;
+
+    }
+    .question_block#ques_Naruto{
+        background-image: linear-gradient(to right, #605c3ca9, #3f3c49b0), url("../static/images/naruto_bg_3.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .question_block#ques_Friends{
+        background-image: linear-gradient(to right, #b4b29db2, #8e899cb6), url("../static/images/543961.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .question_block#ques_Harry{
+        background-image: url("../static/images/harry_bg_2.jfif");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    #ques_Naruto .question_statement{
+        font-size: 40px;
+        font-weight: 700;
+        color:rgb(236, 202, 157);
+    }
+    #ques_Naruto .options{
+        font-size: 26px;
+        font-weight: 500;
+        color: blanchedalmond;
+    }
+    #ques_Friends .question_statement{
+        font-size: 40px;
+        font-weight: 700;
+        color:rgb(29, 10, 51);
+    }
+    #ques_Friends .options{
+        font-size: 26px;
+        font-weight: 500;
+        color: rgb(52, 29, 70);
+    }
+    #ques_Harry .question_statement{
+        font-size: 40px;
+        font-weight: 700;
+        color:rgb(6, 3, 8);
+    }
+    #ques_Harry .options{
+        font-size: 26px;
+        font-weight: 500;
+        color: rgba(9, 3, 14, 0.87);
+    }
+</style>
+<body>
+    <audio id="naruto_audio" autoplay loop>
+        <source src='../static/songs/Naruto Main Theme_50k.mp3' type='audio/mp3'>
+    </audio>
+    <audio id="friends_audio" loop>
+        <source src='../static/songs/friends-theme-song-instrumen-cut-13150.mp3' type='audio/mp3'>
+    </audio>
+    <audio id="harry_potter_audio" loop>
+        <source src='../static/songs/Harry Potter - Hedwig s Theme (Piano Version)_50k.mp3' type='audio/mp3'>
+    </audio>
+    <audio id="click_audio">
+        <source src='../static/songs/Mouse Click - Sound Effect (HD)_50k.mp3' type='audio/mp3'>
+    </audio>
+    <audio id="error_audio">
+        <source src='../static/songs/error_CDOxCYm.mp3' type='audio/mp3'>
+    </audio>
+    <audio id="correct_audio">
+        <source src='../static/songs/Correct Answer 3 Sound Effect_50k.mp3' type='audio/mp3'>
+    </audio>
+    <div class="video_block d-none">
+        <video id="naruto_video"  style="width:100%;height:99vh" >
+            <source src="../static/videos/naruto.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="">
+        {% for theme in themes%}
+            <div class="entry_block pl-5 pt-5 d-none" id="theme_{{ theme[0].split(' ')[0] }}">
+                <div class="col-md-5 offset-md-1 pt-5 text-center">
+                    <h1 class="entry_heading text-center pl-5 ml-5">
+                        DO YOU<br>REMEMBER?
+                    </h1>
+                    <div class="pl-5 ml-5">
+                        <div class="rounded-circle mx-auto" style="background-color: #89acfdb9;width: 250px; height: 250px;">
+                            <p class="theme_sub_heading pt-2 mb-0 text-center">Theme</p>
+                            <p class="theme_heading pt-4 mb-0 text-center" id="{{ theme[0] }}">{{ theme[0] }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <a id="play_btn_{{theme[0].split(' ')[0] }}"class="video-play-button play_btn" href="#">
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="question_block d-none justify-content-center align-items-center" id="ques_{{ theme[0].split(' ')[0] }}">
+                {% for question in theme[1:] %}
+                    <div class="d-none" id="ques_{{ theme[0].split(' ')[0] }}_{{question[0].split('-')[0].strip(' ')}}">
+                        <div class="text-center">
+                            <img src="../static/images/{{ theme[0].split(' ')[0] }}/{{ question[0].split('-')[0].strip(' ') }}.png" style="width: 450px;max-height: 400px;" class="rounded-lg">
+                            <h2 class="my-3 question_statement" answer="{{ question[1] }}">{{ question[0] }}</h2>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-start w-100 mx-5 mt-2">
+                            {% for option in question[2].split("|") %}
+                                <div class="col-md-5 offset-md-1">
+                                    <div class="form-check mt-2">
+                                        <input class="form-check-input mt-3" type="radio" name="flexRadioDefault" id="ques_{{ theme[0].split(' ')[0] }}_{{question[0].split('-')[0].strip(' ')}}|{{option}}">
+                                        <label class="form-check-label options" for="flexRadioDefault1">
+                                            {{option}}
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+        {% endfor %}
+    </div>
+</body>
+<script>
+    let naruto_audio = document.getElementById("naruto_audio");
+    let friends_audio = document.getElementById("friends_audio");
+    let harry_potter_audio = document.getElementById("harry_potter_audio");
+    let click_audio = document.getElementById("click_audio");
+    let error_audio = document.getElementById("error_audio");
+    let correct_audio = document.getElementById("correct_audio");
+
+    let naruto_video = document.getElementById("naruto_video");
+
+    window.addEventListener("mousedown", function(){
+        naruto_video.play()
+    })
+    document.getElementById("theme_Naruto").classList.add("d-flex");
+    document.getElementById("theme_Naruto").classList.remove("d-none");
+    $(".play_btn").on("click",function(){
+        let theme = $(this).attr("id").split("_")[2];
+        click_audio.play()
+        document.getElementById(`theme_${theme}`).classList.add("d-none");
+        document.getElementById(`theme_${theme}`).classList.remove("d-flex");
+        document.getElementById(`ques_${theme}`).classList.add("d-flex");
+        document.getElementById(`ques_${theme}`).classList.remove("d-none");
+        document.getElementById(`ques_${theme}_1`).classList.remove("d-none");
+    })
+
+    $(".form-check-input").on("change", function(){
+        let ques_id = $(this).attr("id").split("|")[0];
+        let option_value = $(this).attr("id").split("|")[1];
+        let ans = $("#"+ques_id).find(".question_statement").attr("answer");
+        if (ans==option_value){
+            correct_audio.play()
+            let ques_no = Number(ques_id.split("_")[2]);
+            let theme = (ques_id.split("_")[1]);
+            if (ques_no==3){
+                if (theme=="Naruto"){
+                    naruto_audio.pause();
+                    friends_audio.play()
+                    document.getElementById(`ques_${theme}_3`).classList.add("d-none");
+                    document.getElementById(`ques_${theme}`).classList.remove("d-flex");
+                    document.getElementById(`ques_${theme}`).classList.add("d-none");
+                    document.getElementById(`theme_Friends`).classList.remove("d-none");
+                    document.getElementById(`theme_Friends`).classList.add("d-flex");
+                } else if (theme=="Friends"){
+                    friends_audio.pause()
+                    harry_potter_audio.play()
+                    document.getElementById(`ques_${theme}_3`).classList.add("d-none");
+                    document.getElementById(`ques_${theme}`).classList.remove("d-flex");
+                    document.getElementById(`ques_${theme}`).classList.add("d-none");
+                    document.getElementById(`theme_Harry`).classList.remove("d-none");
+                    document.getElementById(`theme_Harry`).classList.add("d-flex");
+                } else if (theme=="Harry"){
+                    setTimeout(function(){
+                        window.location.href = "/jumble_family";
+                    },2000)
+                }
+            } else{
+                document.getElementById(ques_id).classList.add("d-none");
+                document.getElementById(`ques_${theme}_${ques_no+1}`).classList.remove("d-none");
+            }
+        } else{
+            error_audio.play()
+        }
+    })
+</script>
+</html>

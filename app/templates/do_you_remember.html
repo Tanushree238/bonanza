@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Do You Remember?</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -166,13 +166,13 @@
         <source src='../static/songs/Correct Answer 3 Sound Effect_50k.mp3' type='audio/mp3'>
     </audio>
     <div id="video_block">
-        <video id="naruto_video" class="video d-none" data-theme="Naruto">
+        <video id="naruto_video" class="video d-none" data-theme="Naruto" controls>
             <source src="../static/videos/naruto.mp4" type="video/mp4">
         </video>
-        <video id="friends_video" class="video d-none" data-theme="Friends">
+        <video id="friends_video" class="video d-none" data-theme="Friends" controls>
             <source src="../static/videos/friends.mp4" type="video/mp4">
         </video>
-        <video id="harry_potter_video" class="video d-none" data-theme="Harry">
+        <video id="harry_potter_video" class="video d-none" data-theme="Harry" controls>
             <source src="../static/videos/harry_potter.mp4" type="video/mp4">
         </video>
     </div>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-center align-items-center h-100">
-                        <a id="play_btn_{{theme[0].split(' ')[0] }}"class="video-play-button play_btn" href="#">
+                        <a id="play_btn_{{theme[0].split(' ')[0] }}"class="video-play-button play_btn">
                             <span></span>
                         </a>
                     </div>
@@ -210,7 +210,7 @@
                                 <div class="col-md-5 offset-md-1">
                                     <div class="form-check mt-2">
                                         <input class="form-check-input mt-3" type="radio" name="flexRadioDefault" id="ques_{{ theme[0].split(' ')[0] }}_{{question[0].split('-')[0].strip(' ')}}|{{option}}">
-                                        <label class="form-check-label options" for="flexRadioDefault1">
+                                        <label class="form-check-label options" for="ques_{{ theme[0].split(' ')[0] }}_{{question[0].split('-')[0].strip(' ')}}|{{option}}">
                                             {{option}}
                                         </label>
                                     </div>
@@ -272,10 +272,7 @@
             document.getElementById(`theme_Harry`).classList.remove("d-none");
             document.getElementById(`theme_Harry`).classList.add("d-flex");
         } else if (theme=="Harry"){
-            harry_potter_video.classList.add('d-none')
-            setTimeout(function(){
-                window.location.href = "/jumble_family";
-            },2000)
+            window.location.href = "/jumble_family";
         }
     }
 
